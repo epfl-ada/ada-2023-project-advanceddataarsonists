@@ -6,7 +6,15 @@ Then, we will analyse if a given character trope matches certain actor features.
 
 The following diagram presents the structure of this repository :
 ```
-├───dataset
+├───data
+│   ├───cmu
+│   └───imdb
+│       ├───title.akas.tsv
+│       ├───title.basics.tsv
+│       ├───title.crew.tsv
+│       ├───title.episode.tsv
+│       ├───title.principals.tsv
+│       └───title.ratings.tsv
 ├───src
 │   └───preprocessing
 ```
