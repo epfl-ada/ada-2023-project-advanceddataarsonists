@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import json
 
-CMU_DATASET_PATH = "data/cmu/"
+CMU_DATASET_PATH = "data/cmu/MovieSummaries"
 CHARACTER_METADATA = "character.metadata.tsv"
 MOVIE_METADATA = "movie.metadata.tsv"
 PLOT_SUMMARIES = "plot_summaries.txt"
