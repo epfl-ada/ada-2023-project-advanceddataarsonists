@@ -5,8 +5,8 @@ from os import makedirs
 import shutil
 from urllib.parse import urlparse
 
-DATASET_PATH = join('.', 'dataset')
-DATASET_CACHE_PATH = join('.', 'dataset', 'cache')
+DATASET_PATH = join('.', 'data')
+DATASET_CACHE_PATH = join('.', 'data', 'cache')
 
 def unpack_gz(gzipped_file_name, work_dir):
     filename = split(gzipped_file_name)[-1]
@@ -42,18 +42,21 @@ def download(url: str, fname: str, chunk_size=1024):
 def ensure_database_availability():
     # Dataset to download
     datasets = [
-        'https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz',
-        'https://datasets.imdbws.com/title.basics.tsv.gz',
-        'https://datasets.imdbws.com/name.basics.tsv.gz',
-        'https://datasets.imdbws.com/title.ratings.tsv.gz',
-        'https://datasets.imdbws.com/title.principals.tsv.gz'
+        ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
+        ('https://datasets.imdbws.com/title.basics.tsv.gz', 'imdb'),
+        ('https://datasets.imdbws.com/name.basics.tsv.gz', 'imdb'),
+        ('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb'),
+        ('https://datasets.imdbws.com/title.principals.tsv.gz', 'imdb')
     ]
 
     # Download each dataset one by one
     makedirs(DATASET_PATH, exist_ok=True)
     makedirs(DATASET_CACHE_PATH, exist_ok=True)
 
-    for dataset in datasets:
+    for dataset, folder in datasets:
+        working_dir = join(DATASET_PATH, folder)
+        makedirs(working_dir, exist_ok=True)
+        
         filename = basename(urlparse(dataset).path)
         archive_path = join(DATASET_CACHE_PATH, filename)
 
@@ -65,7 +68,7 @@ def ensure_database_availability():
             download(dataset, archive_path)
 
             print(f'  - Extracting archive {dataset}')
-            shutil.unpack_archive(archive_path, DATASET_PATH)
+            shutil.unpack_archive(archive_path, working_dir)
     
 if __name__ == '__main__':
     ensure_database_availability()
