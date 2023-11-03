@@ -16,6 +16,8 @@ IMDB_AKAS_METADATA = "title.akas.tsv"
 IMDB_EPISODE_METADATA = "title.episode.tsv"
 IMDB_PRINCIPAL_METADATA = "title.principals.tsv"
 
+WIKIDATA_PATH = "data/wikidata/"
+WIKIDATA_TRANSLATION_ID = "id-translation.wikidata.json"
 
 characters_label = ['wiki_movie_id', 'freebase_movie_id', 'release_date', 'character_name', 'actor_birth', 
                     'actor_gender', 'actor_height', 'actor_ethnicity', 'actor_name', 'release_actor_age', 
@@ -27,6 +29,19 @@ movies_label = ['wiki_movie_id', 'freebase_movie_id', 'movie_name', 'movie_relea
 plot_label = ['wiki_movie_id', 'plot_summary']
 
 tvtropes_label = ['trope_name', 'character_data']
+
+def load_translation_df():
+    with open(os.path.join(WIKIDATA_PATH, WIKIDATA_TRANSLATION_ID)) as file:
+        raw_table = json.load(file)
+
+    imdb_id = []
+    freebase_id = []
+
+    for robject in raw_table['results']['bindings']:
+        imdb_id.append(robject['IMDb_ID']['value'])
+        freebase_id.append(robject['freebase_id']['value'])
+
+    return pd.DataFrame(data={ 'imdb_id': imdb_id, 'freebase_id': freebase_id })
 
 def load_characters_df():
     characters_df = pd.read_csv(os.path.join(CMU_DATASET_PATH, CHARACTER_METADATA), sep='\t', names=characters_label)

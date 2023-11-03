@@ -1,12 +1,15 @@
 import requests
+import shutil
+import json
 from tqdm import tqdm
 from os.path import join, exists, basename, split
 from os import makedirs
-import shutil
 from urllib.parse import urlparse
+import textwrap
 
 DATASET_PATH = join('.', 'data')
 DATASET_CACHE_PATH = join('.', 'data', 'cache')
+WIKIDATA_QUERY_URL = 'https://query.wikidata.org/sparql'
 
 def unpack_gz(gzipped_file_name, work_dir):
     filename = split(gzipped_file_name)[-1]
@@ -39,6 +42,16 @@ def download(url: str, fname: str, chunk_size=1024):
             size = file.write(data)
             bar.update(size)
 
+def download_wikidata_query(query: str, file: str):
+    print('  - Running query: "{}" (this may take a while)'.format(textwrap.shorten(query.replace('\n', ' '), width=16)))
+    r = requests.get(url=WIKIDATA_QUERY_URL, params={ 'format': 'json', 'query': query })
+    obj = r.json()
+
+
+    print('  - Serialization of the result')
+    with open(file, 'w') as file:
+        json.dump(obj, file)
+
 def ensure_database_availability():
     # Dataset to download
     datasets = [
@@ -70,5 +83,29 @@ def ensure_database_availability():
             print(f'  - Extracting archive {dataset}')
             shutil.unpack_archive(archive_path, working_dir)
     
+    # Download the wiki_movie_id to imdb' tconst translation using wikidata query
+    translation_id_wikidata_path = join(DATASET_PATH, 'wikidata')
+    makedirs(translation_id_wikidata_path, exist_ok=True)
+    translation_id_wikidata_path = join(translation_id_wikidata_path, 'id-translation.wikidata.json')
+
+    if exists(translation_id_wikidata_path):
+        print('[+] Found existing translation for wiki_movie_id to imdb\' tconst')
+    
+    else:
+        query = '''
+        SELECT DISTINCT ?item ?IMDb_ID ?freebase_id ?title WHERE {
+            ?item p:P31/ps:P31/wdt:P279* wd:Q11424 .
+            ?item wdt:P345 ?IMDb_ID .
+            ?item wdt:P646 ?freebase_id .
+            ?item wdt:P1476 ?title .
+            ?item wdt:P577 ?pub_date
+            FILTER(YEAR(?pub_date) <= 2012).
+        }
+        '''
+
+        print('[x] No cached data for translation for wiki_movie_id to imdb\' tconst')
+        result = download_wikidata_query(query=query, file=translation_id_wikidata_path)
+        
+
 if __name__ == '__main__':
     ensure_database_availability()
