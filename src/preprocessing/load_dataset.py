@@ -9,12 +9,12 @@ PLOT_SUMMARIES = "plot_summaries.txt"
 TVTROPES_CLUSTERS = "tvtropes.clusters.txt"
 
 IMDB_PATH = "data/imdb/"
-IMDB_REVIEWS_METADATA = "title.ratings.tsv/data.tsv"
-IMDB_BASICS_METADATA = "title.basics.tsv/data.tsv"   # move to load_dataset file 
-IMDB_CREW_METADATA = "title.crew.tsv/data.tsv"
-IMDB_AKAS_METADATA = "title.akas.tsv/data.tsv"
-IMDB_EPISODE_METADATA = "title.episode.tsv/data.tsv"
-IMDB_PRINCIPAL_METADATA = "title.principals.tsv/data.tsv"
+IMDB_REVIEWS_METADATA = "title.ratings.tsv"
+IMDB_BASICS_METADATA = "title.basics.tsv"   # move to load_dataset file 
+IMDB_CREW_METADATA = "title.crew.tsv"
+IMDB_AKAS_METADATA = "title.akas.tsv"
+IMDB_EPISODE_METADATA = "title.episode.tsv"
+IMDB_PRINCIPAL_METADATA = "title.principals.tsv"
 
 
 characters_label = ['wiki_movie_id', 'freebase_movie_id', 'release_date', 'character_name', 'actor_birth', 
