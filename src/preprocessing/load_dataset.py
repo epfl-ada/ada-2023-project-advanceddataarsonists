@@ -9,12 +9,10 @@ PLOT_SUMMARIES = "plot_summaries.txt"
 TVTROPES_CLUSTERS = "tvtropes.clusters.txt"
 
 IMDB_PATH = "data/imdb/"
-IMDB_REVIEWS_METADATA = "title.ratings.tsv"
-IMDB_BASICS_METADATA = "title.basics.tsv"   # move to load_dataset file 
-IMDB_CREW_METADATA = "title.crew.tsv"
-IMDB_AKAS_METADATA = "title.akas.tsv"
-IMDB_EPISODE_METADATA = "title.episode.tsv"
-IMDB_PRINCIPAL_METADATA = "title.principals.tsv"
+IMDB_TITLE_RATINGS = "title.ratings.tsv"
+IMDB_TITLE_BASICS = "title.basics.tsv"   # move to load_dataset file 
+IMDB_TITLE_PRINCIPALS = "title.principals.tsv"
+IMDB_NAME_BASICS = "name.basics.tsv"
 
 WIKIDATA_PATH = "data/wikidata/"
 WIKIDATA_TRANSLATION_ID = "id-translation.wikidata.json"
@@ -71,35 +69,22 @@ def load_tvtropes_df():
 
 
 def load_imdb_ratings():
-    imdb_ratings_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_REVIEWS_METADATA), sep='\t')
+    imdb_ratings_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_TITLE_RATINGS), sep='\t')
     return imdb_ratings_df
 
 
-def load_imdb_basics():
-    imdb_names_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_BASICS_METADATA), dtype={4: str}, sep='\t')
+def load_imdb_title_basics():
+    imdb_names_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_TITLE_BASICS), dtype={4: str}, sep='\t')
     # Only keep the ones labeled as movies
     imdb_names_df = imdb_names_df[imdb_names_df['titleType'] == 'movie']
     return imdb_names_df
 
 
-def load_imdb_crew():
-    imdb_crew_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_CREW_METADATA), sep='\t')
-    return imdb_crew_df
-
-
-
-def load_imdb_akas():
-    imdb_akas_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_AKAS_METADATA), sep='\t')
-    return imdb_akas_df
-
-
-
-def load_imdb_episodes():
-    imdb_episodes_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_EPISODE_METADATA), sep='\t')
-    return imdb_episodes_df
-
-
-
-def load_imdb_principals():
-    imdb_principals_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_PRINCIPAL_METADATA), sep='\t')
+def load_imdb_title_principals():
+    imdb_principals_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_TITLE_PRINCIPALS), sep='\t')
     return imdb_principals_df
+
+
+def load_imdb_person_basics():
+    imdb_name_basics_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_NAME_BASICS), sep='\t')
+    return imdb_name_basics_df
