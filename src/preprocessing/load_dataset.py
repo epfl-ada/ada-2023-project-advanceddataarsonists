@@ -8,6 +8,7 @@ MOVIE_METADATA = "movie.metadata.tsv"
 PLOT_SUMMARIES = "plot_summaries.txt"
 TVTROPES_CLUSTERS = "tvtropes.clusters.txt"
 
+
 characters_label = ['wiki_movie_id', 'freebase_movie_id', 'release_date', 'character_name', 'actor_birth', 
                     'actor_gender', 'actor_height', 'actor_ethnicity', 'actor_name', 'release_actor_age', 
                     'freebase_map_id', 'freebase_character_id', 'freebase_actor_id']
