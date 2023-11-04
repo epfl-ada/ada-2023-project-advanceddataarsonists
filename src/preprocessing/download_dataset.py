@@ -3,7 +3,7 @@ import shutil
 import json
 from tqdm import tqdm
 from os.path import join, exists, basename, split
-from os import makedirs
+from os import makedirs, walk, remove
 from urllib.parse import urlparse
 import textwrap
 
@@ -47,7 +47,6 @@ def download_wikidata_query(query: str, file: str):
     r = requests.get(url=WIKIDATA_QUERY_URL, params={ 'format': 'json', 'query': query })
     obj = r.json()
 
-
     print('  - Serialization of the result')
     with open(file, 'w') as file:
         json.dump(obj, file)
@@ -56,10 +55,11 @@ def ensure_database_availability():
     # Dataset to download
     datasets = [
         ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
+        ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
         ('https://datasets.imdbws.com/title.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/name.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb'),
-        ('https://datasets.imdbws.com/title.principals.tsv.gz', 'imdb')
+        ('https://datasets.imdbws.com/title.principals.tsv.gz', 'imdb'),
     ]
 
     # Download each dataset one by one
@@ -82,7 +82,21 @@ def ensure_database_availability():
 
             print(f'  - Extracting archive {dataset}')
             shutil.unpack_archive(archive_path, working_dir)
+
+    # Unpack each corenlp plot summaries independently
+    for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
+        for file in files:
+            path = join(root, file)
+            if path.endswith('.xml.gz'):
+                print(f'  - Unpacking {path}')
+                shutil.unpack_archive(path, join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries'))
     
+    for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
+        for file in files:
+            path = join(root, file)
+            if file.endswith('.xml.gz'):
+                remove(path=path)
+
     # Download the wiki_movie_id to imdb' tconst translation using wikidata query
     translation_id_wikidata_path = join(DATASET_PATH, 'wikidata')
     makedirs(translation_id_wikidata_path, exist_ok=True)
