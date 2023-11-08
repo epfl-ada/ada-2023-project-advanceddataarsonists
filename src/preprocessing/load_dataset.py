@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import json
+import numpy as np
 
 CMU_DATASET_PATH = "data/cmu/MovieSummaries"
 CHARACTER_METADATA = "character.metadata.tsv"
@@ -8,9 +9,12 @@ MOVIE_METADATA = "movie.metadata.tsv"
 PLOT_SUMMARIES = "plot_summaries.txt"
 TVTROPES_CLUSTERS = "tvtropes.clusters.txt"
 
+CMU_PERSONAS_PATH = "data/cmu/personas"
+CMU_CHARACTER_PERSONA = "25.100.lda.log.txt"
+
 IMDB_PATH = "data/imdb/"
 IMDB_TITLE_RATINGS = "title.ratings.tsv"
-IMDB_TITLE_BASICS = "title.basics.tsv"   # move to load_dataset file 
+IMDB_TITLE_BASICS = "title.basics.tsv"
 IMDB_TITLE_PRINCIPALS = "title.principals.tsv"
 IMDB_NAME_BASICS = "name.basics.tsv"
 
@@ -27,6 +31,8 @@ movies_label = ['wiki_movie_id', 'freebase_movie_id', 'movie_name', 'movie_relea
 plot_label = ['wiki_movie_id', 'plot_summary']
 
 tvtropes_label = ['trope_name', 'character_data']
+
+personas_label = ['freebase_id', 'movie_name', 'secondary_name', 'full_name', 'token_occurences', 'estimated_trope', 'trope_distrib']
 
 def load_translation_df():
     with open(os.path.join(WIKIDATA_PATH, WIKIDATA_TRANSLATION_ID)) as file:
@@ -88,3 +94,10 @@ def load_imdb_title_principals():
 def load_imdb_person_basics():
     imdb_name_basics_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_NAME_BASICS), sep='\t')
     return imdb_name_basics_df
+
+
+def load_personas():
+    personas_df = pd.read_csv(os.path.join(CMU_PERSONAS_PATH, CMU_CHARACTER_PERSONA), sep='\t', names=personas_label)
+    personas_df['trope_distrib'] = personas_df['trope_distrib'].apply(lambda x : np.fromstring(x, dtype=np.float32, sep=' '))
+
+    return personas_df

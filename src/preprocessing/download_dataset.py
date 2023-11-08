@@ -55,7 +55,7 @@ def ensure_database_availability():
     # Dataset to download
     datasets = [
         ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
-        ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
+        # ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
         ('https://datasets.imdbws.com/title.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/name.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb'),
@@ -88,19 +88,19 @@ def ensure_database_availability():
             print(f'  - Extracting archive {dataset}')
             shutil.unpack_archive(archive_path, working_dir)
 
-    # Unpack each corenlp plot summaries independently
-    for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
-        for file in files:
-            path = join(root, file)
-            if path.endswith('.xml.gz'):
-                print(f'  - Unpacking {path}')
-                shutil.unpack_archive(path, join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries'))
+    # # Unpack each corenlp plot summaries independently
+    # for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
+    #     for file in files:
+    #         path = join(root, file)
+    #         if path.endswith('.xml.gz'):
+    #             print(f'  - Unpacking {path}')
+    #             shutil.unpack_archive(path, join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries'))
     
-    for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
-        for file in files:
-            path = join(root, file)
-            if file.endswith('.xml.gz'):
-                remove(path=path)
+    # for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
+    #     for file in files:
+    #         path = join(root, file)
+    #         if file.endswith('.xml.gz'):
+    #             remove(path=path)
 
     # Download the wiki_movie_id to imdb' tconst translation using wikidata query
     translation_id_wikidata_path = join(DATASET_PATH, 'wikidata')
