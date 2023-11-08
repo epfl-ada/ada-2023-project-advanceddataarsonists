@@ -55,7 +55,7 @@ def ensure_database_availability():
     # Dataset to download
     datasets = [
         ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
-        # ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
+        ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
         ('https://datasets.imdbws.com/title.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/name.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb'),
