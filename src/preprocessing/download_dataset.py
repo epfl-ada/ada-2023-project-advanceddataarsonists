@@ -55,11 +55,16 @@ def ensure_database_availability():
     # Dataset to download
     datasets = [
         ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
-        ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
+        # ('https://www.cs.cmu.edu/~ark/personas/data/corenlp_plot_summaries.tar', 'cmu'),
         ('https://datasets.imdbws.com/title.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/name.basics.tsv.gz', 'imdb'),
         ('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb'),
-        ('https://datasets.imdbws.com/title.principals.tsv.gz', 'imdb'),
+        ('https://datasets.imdbws.com/title.principals.tsv.gz', 'imdb'),        
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/25.100.lda.cond.log.txt.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/25.100.lda.log.txt.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/featureFile.txt.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/featureMeans.txt.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/lr.weights.txt.gz", "cmu/personas")
     ]
 
     # Download each dataset one by one
