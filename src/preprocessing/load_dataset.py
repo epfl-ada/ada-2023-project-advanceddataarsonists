@@ -2,6 +2,9 @@ import pandas as pd
 import os
 import json
 import numpy as np
+import json
+from collections import defaultdict
+import ast
 
 CMU_DATASET_PATH = "data/cmu/MovieSummaries"
 CHARACTER_METADATA = "character.metadata.tsv"
@@ -17,6 +20,9 @@ IMDB_TITLE_RATINGS = "title.ratings.tsv"
 IMDB_TITLE_BASICS = "title.basics.tsv"
 IMDB_TITLE_PRINCIPALS = "title.principals.tsv"
 IMDB_NAME_BASICS = "name.basics.tsv"
+
+TVTROPES_PATH = "data/tvtropes/"
+TVTROPES_PERSONAS = "trope2characters.json"
 
 WIKIDATA_PATH = "data/wikidata/"
 WIKIDATA_TRANSLATION_ID = "id-translation.wikidata.json"
@@ -99,5 +105,22 @@ def load_imdb_person_basics():
 def load_personas():
     personas_df = pd.read_csv(os.path.join(CMU_PERSONAS_PATH, CMU_CHARACTER_PERSONA), sep='\t', names=personas_label)
     personas_df['trope_distrib'] = personas_df['trope_distrib'].apply(lambda x : np.fromstring(x, dtype=np.float32, sep=' '))
-
     return personas_df
+
+
+def load_tv_tropes_personas_df():
+    tv_tropes_personas_path = os.path.join(TVTROPES_PATH, TVTROPES_PERSONAS)
+    
+    with open(tv_tropes_personas_path, 'r') as file:
+        trope2characters_data = json.load(file)
+        
+    movie_ids = []
+    for trope, characters in trope2characters_data.items():
+        for char_info in characters:
+            char_dict = ast.literal_eval(char_info.strip())
+            movie_id = char_dict["id"]
+            actor = char_dict["actor"]
+            movie = char_dict["movie"]
+            character = char_dict["char"]
+            movie_ids.append({"id": movie_id, "trope": trope, "actor": actor, "character": character, "movie_name": movie})
+    return pd.DataFrame(movie_ids)
