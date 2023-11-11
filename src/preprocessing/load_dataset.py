@@ -32,7 +32,7 @@ plot_label = ['wiki_movie_id', 'plot_summary']
 
 tvtropes_label = ['trope_name', 'character_data']
 
-personas_label = ['freebase_id', 'movie_name', 'secondary_name', 'full_name', 'token_occurences', 'estimated_trope', 'trope_distrib']
+personas_label = ['freebase_id', 'wiki_id', 'movie_name', 'secondary_name', 'full_name', 'token_occurences', 'estimated_trope', 'trope_distrib']
 
 def load_translation_df():
     with open(os.path.join(WIKIDATA_PATH, WIKIDATA_TRANSLATION_ID)) as file:
