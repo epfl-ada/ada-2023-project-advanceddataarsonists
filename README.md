@@ -22,7 +22,7 @@ python ./src/preprocessing/download_dataset.py
 
 ### IMDb dataset to determine movie's success
 
-Our question revolves around actors, their *associated* personas and how well this *association* influences the success of a film. To that end, we need to define a metric of "success" of a film, even if we are already provided with the `box_office` column in the cmu dataset, it only include data for the bigger blockbusters. We have therefore decided to use the imdb rating of the film as a metric defining its performance.
+We need to define a metric of "success" of a film. Even if we are already provided with the `box_office` column in the cmu dataset, it only includes data for the bigger blockbusters, wihch represent only 10% of the movies. We have therefore decided to use the imdb rating of the film as a metric defining its performance.
 
 We also used the `people` and `principals` collections from IMDb to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
 
