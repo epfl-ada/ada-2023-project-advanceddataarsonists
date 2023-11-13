@@ -159,10 +159,7 @@ This approach, even though still relatively simple, overlooked some major bias t
    - Add a threshold $\alpha$ and only consider movies for actors that have already played in $K \geq \alpha$ movies previously (drop first $\alpha - 1$ movies for 
    each actors)
       
-   - Add a third metric $R$ to our model defined as
-     $$
-        R(\text{Actor}, \text{Movie}) = \frac{\text{\# Movies played by actor A prior to M}}{\text{\# Movies played by actor A}}     
-     $$
+   - Add a third metric $R$ to our model defined as $$R(\text{Actor}, \text{Movie}) = \frac{\text{\# Movies played by actor A prior to M}}{\text{\# Movies played by actor A}}$$
 
      This would be able to distinguish between the case where $R < \alpha$ and $R > \alpha$ for a given $\alpha$. We could also try to evaluate the strength of this bias by testing the model *with* and *without* this metric. Notice that this is just an extension of the previously defined method. However this extension is more polyvalent than the previos method.
    
