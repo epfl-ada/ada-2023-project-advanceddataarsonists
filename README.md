@@ -50,12 +50,15 @@ Our question revolves around actors, their *associated* personas and how well th
 
 > Note: As a possible extension, we could use a sentiment analysis algorithm on imdb's review dataset in order to retrieve a distribution of sentiment. This could enable us to define a more refined metric than simply the average (`stddev + median`, `q05 + q95`, ...)
 
-We also used the `people` and `principals` collections from IMDB to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
+We also used the `people` and `principals` collections from IMDb to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
 
-### WikiData dataset to merge datasets
+### WikiData translation to merge datasets
 
-To merge movies in different datasets (CMU and IMDb), we need a third dataset that contains an ID for the CMU dataset (either freebase_id or wiki_movie_id) and the ID for the IMDb dataset. This can be done using the WikiData database. To retrieve those indices, we use the [WikiData Query service](https://query.wikidata.org/). The query can be found in [download_dataset.py](src/preprocessing/download_dataset.py).
+To merge movies in different datasets (CMU and IMDb), we need a third dataset that contains an ID for the CMU dataset (either freebase_id or wiki_movie_id) and the ID for the IMDb dataset (tconst). This can be done using the WikiData database. To retrieve those indices, we use the [WikiData Query service](https://query.wikidata.org/). The query can be found in [download_dataset.py](src/preprocessing/download_dataset.py).
 
+### TVTropes tropes
+
+We downloaded a dataset of 500 highly curated tropes with corresponding characters from [TVTropes](https://tvtropes.org/) hoping to enrich our personas data.
 
 ## Methods (data pipeline)
 
