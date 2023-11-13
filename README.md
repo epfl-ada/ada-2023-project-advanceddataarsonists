@@ -174,7 +174,10 @@ This approach, even though still relatively simple, overlooked some major bias t
      perform
 
      - A difference in difference of means between the both (where *neutral actors* are defined by a certain threshold $\alpha$ defined on the metric `1.`).
+   
 
      - Matching between *neutral actors* and *actors* with a preferrence (however this may end up being complexify by the limited amou)
-    
 
+## Proposed timeline
+
+## Organization
