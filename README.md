@@ -20,13 +20,13 @@ In order to download all required dataset, run the [download_dataset.py](src/pre
 python ./src/preprocessing/download_dataset.py
 ```
 
-### IMDb dataset to determine movie's success
+### IMDb
 
 We need to define a metric of "success" of a film. Even if we are already provided with the `box_office` column in the cmu dataset, it only includes data for the bigger blockbusters, wihch represent only 10% of the movies. We have therefore decided to use the imdb rating of the film as a metric defining its performance.
 
 We also used the `people` and `principals` collections from IMDb to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
 
-### WikiData translation to merge datasets
+### WikiData
 
 To merge movies from different sources (CMU and IMDb), we need a translation layer that contains an ID for the CMU dataset (either freebase_id or wiki_movie_id) and for the IMDb dataset (tconst). This can be done by querying the WikiData database using [WikiData Query service](https://query.wikidata.org/).
 
