@@ -62,7 +62,13 @@ We downloaded a dataset of 500 highly curated tropes with corresponding characte
 
 ### Implementation
 We have written a [script](src/preprocessing/download_dataset.py) that automatically downloads all the above data from the various sources. It also contains the specific query that we make to wikidata to recover the translation between unique identifiers. The data is manageable in size and all filtering and merging steps necessary are done in Part I of the [notebook](initial_analyses.ipynb).
+## Methods
 
+## Proposed timeline
+
+## Organization
+
+# BELOW IS OLD METHODS SECTION THAT HAS TO BE SHORTENED/MOVED
 ## Methods
 
 1. Retrieve actors persona distribution :
@@ -176,8 +182,4 @@ This approach, even though still relatively simple, overlooked some major bias t
      - A difference in difference of means between the both (where *neutral actors* are defined by a certain threshold $\alpha$ defined on the metric `1.`).
    
 
-     - Matching between *neutral actors* and *actors* with a preferrence (however this may end up being complexify by the limited amou)
-
-## Proposed timeline
-
-## Organization
+     - Matching between *neutral actors* and *actors* with a preferrence (however this may end up being complexify by the limited amount)
