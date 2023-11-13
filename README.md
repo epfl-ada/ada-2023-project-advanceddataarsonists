@@ -15,7 +15,7 @@ In the movie industry, creativity is generally considered to be a key factor in 
 
 ## Datasets
 
-In order to download all required dataset, run the `download_dataset.py` from the root repository (may take a while)
+In order to download all required dataset, run the [download_dataset.py](src/preprocessing/download_dataset.py) from the root repository (may take a while)
 ```
 python ./src/preprocessing/download_dataset.py
 ```
@@ -28,14 +28,12 @@ We also used the `people` and `principals` collections from IMDb to enrich the `
 
 ### WikiData translation to merge datasets
 
-To merge movies in different datasets (CMU and IMDb), we need a third dataset that contains an ID for the CMU dataset (either freebase_id or wiki_movie_id) and the ID for the IMDb dataset (tconst). This can be done using the WikiData database. To retrieve those indices, we use the [WikiData Query service](https://query.wikidata.org/).
+To merge movies from different sources (CMU and IMDb), we need a translation layer that contains an ID for the CMU dataset (either freebase_id or wiki_movie_id) and for the IMDb dataset (tconst). This can be done by querying the WikiData database using [WikiData Query service](https://query.wikidata.org/).
 
 ### TVTropes tropes
 
-We downloaded a dataset of 500 highly curated tropes with corresponding characters from [TVTropes](https://tvtropes.org/) hoping to enrich our personas data.
+We downloaded a dataset of 500 highly curated tropes with corresponding characters from [TVTropes](https://tvtropes.org/) to enrich our personas data.
 
-### Implementation
-We have written a [script](src/preprocessing/download_dataset.py) that automatically downloads all the above data from the various sources. It also contains the specific query that we make to wikidata to recover the translation between unique identifiers. The data is manageable in size and all filtering and merging steps necessary are done in Part I of the [notebook](initial_analyses.ipynb).
 ## Methods
 
 ## Proposed timeline
