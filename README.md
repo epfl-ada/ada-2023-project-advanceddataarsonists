@@ -105,8 +105,8 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
    - Weighted average on the "importance" of the roles of the actor (where actors who play a more important role in the movie will have a higher weight)
 
      > How do we get the "importance of the role" ?
-   - Randomly sampled from (run multiple time, determine how this impact our final result)
-   This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part (we call them $\text{pref}(m)$ and $\text{like}(m)$).
+   - Random sampling
+   This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part (we call them $\text{pref}(m)$ and $\text{like}(m)$ ).
 
 6. Modelisation of our project question
 
