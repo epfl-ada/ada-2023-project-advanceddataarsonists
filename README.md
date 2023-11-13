@@ -4,35 +4,6 @@
 
 In the movie industry, creativity is generally considered to be a key factor in the success of a film. Actors often need to reinvent themselves to keep audiences hooked, but do they really ? If critics praise an actor's performance in a given movie, it becomes easy for the actor to develop a comfort zone and keep playing the same type of roles or characters. Our projects aims at discovering those comfort zones, when they are created and what happens when an actors steps out of it. Conversly, we also want to evaluate if a given role/character tends to be played only by a subset of actors and which feature(s) do these actors share. First, we focus on actors that tend to play the same type of movies, which might indicate an underlying comfort zone. Then, we use the results of the [original paper](http://www.cs.cmu.edu/~ark/personas/) in order to identify in a more fine-grained approach if an actors exhibit a recurring persona accross the characters they play. Finally, we will reverse the question and uncover if a given character trope matches certain actor features, which could lead us to uncover racial or gender biases in film castings.
 
-## Structure of the repository
-
-The following diagram presents the structure of this repository :
-```
-├───data
-│   ├───cache
-│   ├───cmu
-│   │   ├───MovieSummaries
-│   │   └───personas
-│   ├───imdb
-│   ├───refined
-│   ├───tvtropes
-│   └───wikidata
-└───src
-    └───preprocessing
-```
-
-<!-- The `data` folder contains the `cmu` and `imdb` datasets. In order to merge these datasets, we require a third one, specifically the `wikidata` dataset. The dataset contains a `.json` file that provides the Freebase ID and IMDb ID for each movie. -->
-
-First in order to download all required dataset, run the `download_dataset.py` from the root repository (may take a while)
-```
-python ./src/preprocessing/download_dataset.py
-```
-
-<!-- To load the datasets, run the `load_dataset.py` from the root of the repository:
-```
-py .\src\preprocessing\load_dataset.py
-``` -->
-
 ## Research questions
 
 1. What is the proportion of actors that tend to play the same type of movies ?
@@ -42,7 +13,12 @@ py .\src\preprocessing\load_dataset.py
 5. Are there roles that are acclaimed only when they are played by a specific group of actors ?
 6. Which features of an actor impact the distribution of his roles ?
 
-## Additional datasets
+## Datasets
+
+In order to download all required dataset, run the `download_dataset.py` from the root repository (may take a while)
+```
+python ./src/preprocessing/download_dataset.py
+```
 
 ### IMDb dataset to determine movie's success
 
