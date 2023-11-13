@@ -79,7 +79,7 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
 
    To determine to what extent a given actor $A$ prefer playing a certain persona, we need to metric to quantify this preference. Here are a list of proposed metric
 
-   - `Cross Entropy`: $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$
+   - **Cross Entropy**: $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$
 
       This metric has the following property
       - If the actor $A$ always plays the same persona, then $f(A) = +\infty$
