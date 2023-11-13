@@ -93,12 +93,12 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
       - If the actor $A$ always plays the same persona, then $f(A) = 1$
       - If the actor $A$ plays each persona randomly (same distribution than the global distribution), then $f(A) = 0$
         
-4. Define a `likelihood metric` for each actors :
+4. Define a **likelihood metric** for each actors :
 
    To determine how likely a given actor $A$ is to play a persona $P$, we need a metric to estimate $P(P | A)$. The empirical probability can be used to estimate this likelihood
 
 
-5. Aggregate `preference metric` and `likelihood metric` for a given movie :  
+5. Aggregate **preference metric** and **likelihood metric** for a given movie :  
    
    As we want to predict the success of a movie, we need to aggregate the metrics defined earlier for each actor who plays in the movie. Let's say that a movie is played by a set of actors $A = \{a_1, a_2, \dots a_n\}$ who play personas $P = \{p_1, p_2, \dots p_n\}$ (where $a_i$ plays persona $p_i$). Let's call the `preference metric` $\text{pref}(a)$ and the likelihood metric $\text{like}(a, p)$ (for $a \in A$ and $p \in P$). We propose the following aggregation strategies :
    - Mean/median over both metrics
