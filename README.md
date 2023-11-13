@@ -37,8 +37,8 @@ py .\src\preprocessing\load_dataset.py
 
 1. What is the proportion of actors that tend to play the same type of movies ?
 2. When did an actor start to play in similar movies/a similar character ?
-3. Is there a clear distribution shift in the perfromance of a movie when this actor is/isn't in his comfort zone ?
-4. Do actors exhibit a recurring persona accross the characters they play ?
+3. Do actors exhibit a recurring persona accross the characters they play ?
+4. Is there a clear distribution shift in the perfromance of a movie when this actor is/isn't in his comfort zone ?
 5. Are there roles that are acclaimed only when they are played by a specific group of actors ?
 6. Which features of an actor impact the distribution of his roles ?
 
