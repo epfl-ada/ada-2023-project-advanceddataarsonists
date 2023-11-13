@@ -91,21 +91,7 @@ def ensure_database_availability():
             print(f'  - Extracting archive {dataset}')
             shutil.unpack_archive(archive_path, working_dir)
 
-    # # Unpack each corenlp plot summaries independently
-    # for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
-    #     for file in files:
-    #         path = join(root, file)
-    #         if path.endswith('.xml.gz'):
-    #             print(f'  - Unpacking {path}')
-    #             shutil.unpack_archive(path, join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries'))
-    
-    # for root, _, files in walk(join(DATASET_PATH, 'cmu', 'corenlp_plot_summaries')):
-    #     for file in files:
-    #         path = join(root, file)
-    #         if file.endswith('.xml.gz'):
-    #             remove(path=path)
 
-    # Download the wiki_movie_id to imdb' tconst translation using wikidata query
     translation_id_wikidata_path = join(DATASET_PATH, 'wikidata')
     makedirs(translation_id_wikidata_path, exist_ok=True)
     translation_id_wikidata_path = join(translation_id_wikidata_path, 'id-translation.wikidata.json')
@@ -127,6 +113,25 @@ def ensure_database_availability():
 
         print('[x] No cached data for translation for wiki_movie_id to imdb\' tconst')
         result = download_wikidata_query(query=query, file=translation_id_wikidata_path)
+
+    translation_characters_id_wikidata_path = join(DATASET_PATH, 'wikidata')
+    translation_characters_id_wikidata_path = join(translation_characters_id_wikidata_path, 'id-translation-characters.wikidata.json')
+
+    if exists(translation_characters_id_wikidata_path):
+        print('[+] Found existing translation for characters wiki id to imdb\' tconst')
+    
+    else:
+        query = '''
+        SELECT DISTINCT ?actor ?IMDb_ID ?freebase_id
+        WHERE {
+            ?actor wdt:P106 wd:Q33999 .
+            ?actor wdt:P345 ?IMDb_ID .
+            ?actor wdt:P646 ?freebase_id .
+        }
+        '''
+
+        print('[x] No cached data for translation for wiki_movie_id to imdb\' tconst')
+        result = download_wikidata_query(query=query, file=translation_characters_id_wikidata_path)
         
 
 if __name__ == '__main__':

@@ -26,6 +26,7 @@ TVTROPES_PERSONAS = "trope2characters.json"
 
 WIKIDATA_PATH = "data/wikidata/"
 WIKIDATA_TRANSLATION_ID = "id-translation.wikidata.json"
+WIKIDATA_CHARACTERS_TRANSLATION_ID = "id-translation-characters.wikidata.json"
 
 characters_label = ['wiki_movie_id', 'freebase_movie_id', 'release_date', 'character_name', 'actor_birth', 
                     'actor_gender', 'actor_height', 'actor_ethnicity', 'actor_name', 'release_actor_age', 
@@ -41,18 +42,8 @@ tvtropes_label = ['trope_name', 'character_data']
 personas_label = ['freebase_id', 'wiki_id', 'movie_name', 'secondary_name', 'full_name', 'token_occurences', 'estimated_trope', 'trope_distrib']
 
 
-def load_translation_df():
-    """
-    Load the dataframe that allow joining between CMU and IMDb datasets
-    This dataframe contains 2 columns : the freebase ID and the IMDb ID for a given movie
-
-    Returns
-    -------
-    pandas.DataFrame
-        The translation dataframe
-    """
-
-    with open(os.path.join(WIKIDATA_PATH, WIKIDATA_TRANSLATION_ID)) as file:
+def _load_json_translation_df(path):
+    with open(os.path.join(WIKIDATA_PATH, path)) as file:
         raw_table = json.load(file)
 
     imdb_id = []
@@ -63,6 +54,35 @@ def load_translation_df():
         freebase_id.append(robject['freebase_id']['value'])
 
     return pd.DataFrame(data={ 'imdb_id': imdb_id, 'freebase_id': freebase_id })
+
+def load_translation_df():
+    """
+    Load the dataframe that allow joining between CMU and IMDb movie datasets
+    This dataframe contains 2 columns : the freebase ID and the IMDb ID for a given movie
+
+    Returns
+    -------
+    pandas.DataFrame
+        The translation dataframe
+    """
+
+    return _load_json_translation_df(WIKIDATA_TRANSLATION_ID)
+    
+
+
+def load_actors_translation_df():
+    """
+    Load the dataframe that allow joining between CMU and IMDb actors datasets
+    This dataframe contains 2 columns : the freebase ID and the IMDb ID for a given actor
+
+    Returns
+    -------
+    pandas.DataFrame
+        The translation dataframe
+    """
+
+    return _load_json_translation_df(WIKIDATA_CHARACTERS_TRANSLATION_ID)
+
 
 def load_characters_df():
     """
