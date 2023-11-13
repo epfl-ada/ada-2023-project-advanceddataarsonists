@@ -63,15 +63,15 @@ We downloaded a dataset of 500 highly curated tropes with corresponding characte
 ### Implementation
 We have written a [script](src/preprocessing/download_dataset.py) that automatically downloads all the above data from the various sources. It also contains the specific query that we make to wikidata to recover the translation between unique identifiers. The data is manageable in size and all filtering and merging steps necessary are done in Part I of the [notebook](initial_analyses.ipynb).
 
-## Methods (data pipeline)
+## Methods
 
 1. Retrieve actors persona distribution :
 
-   During this stage, we `group` all **characters** accross all films by **actors**. For each *characters* we retrieve the corresponding *personas* (as defined in the `cmu` dataset). This enables us to extract the distribution of persona for each **actors**. We then filter all **actors** playing more than a certain threshold $K$ personas (cannot deduce anything from an actor who played in only $2$ movies).
+   During this stage, we group all **characters** accross all films by **actors**. For each **characters** we retrieve the corresponding **personas** (as defined in the `cmu` dataset). This enables us to extract the distribution of persona for each **actors**. We then filter all **actors** playing more than a certain threshold $K$ personas.
 
 2. Retrieve global persona distribution :
 
-   In order to make comparaison about *actors personas*, we need to compare it to the global persona distribution. To do so, we need to extract this global persona distribution
+   In order to make comparaison about **actors personas**, we need to compare it to the global persona distribution. To do so, we need to extract this global persona distribution
 
    > Note : We must ensure that the global distribution of personas is computed accross all actors with at least $K$ personas.
 
@@ -80,9 +80,7 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
    To determine to what extent a given actor $A$ prefer playing a certain persona, we need to metric to quantify this preference. Here are a list of proposed metric
 
    - `Cross Entropy`:
-      $$ 
-         f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor}) }
-      $$
+      $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$
 
       This metric has the following property
       - If the actor $A$ always plays the same persona, then $f(A) = +\infty$
