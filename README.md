@@ -1,6 +1,6 @@
 ﻿# Unraveling the connections between actors and characters in movies
 
-*Abstract*
+## Abstract
 
 In the movie industry, creativity is generally considered to be a key factor in the success of a film. Actors often need to reinvent themselves to keep audiences hooked, but do they really ? If critics praise an actor's performance in a given movie, it becomes easy for the actor to develop a comfort zone and keep playing the same type of roles or characters. Our projects aims at discovering those comfort zones, when they are created and what happens when an actors steps out of it. Conversly, we also want to evaluate if a given role/character tends to be played only by a subset of actors and which feature(s) do these actors share. First, we focus on actors that tend to play the same type of movies, which might indicate an underlying comfort zone. Then, we use the results of the [original paper](http://www.cs.cmu.edu/~ark/personas/) in order to identify in a more fine-grained approach if an actors exhibit a recurring persona accross the characters they play. Finally, we will reverse the question and uncover if a given character trope matches certain actor features, which could lead us to uncover racial or gender biases in film castings.
 
@@ -35,10 +35,12 @@ py .\src\preprocessing\load_dataset.py
 
 ## Research questions
 
-1. What is the proportion of actors that tend to play the same type of character across movies ?
-2. Is there a clear distribution shift in the perfromance of a movie when this actor is/isn't in his comfort zone ?
-3. Are there roles that are acclaimed only when they are played by a specific group of actors ?
-4. Which features of an actor impact the distribution of his roles ?
+1. What is the proportion of actors that tend to play the same type of movies ?
+2. When did an actor start to play in similar movies/a similar character ?
+3. Is there a clear distribution shift in the perfromance of a movie when this actor is/isn't in his comfort zone ?
+4. Do actors exhibit a recurring persona accross the characters they play ?
+5. Are there roles that are acclaimed only when they are played by a specific group of actors ?
+6. Which features of an actor impact the distribution of his roles ?
 
 ## Additional datasets
 
