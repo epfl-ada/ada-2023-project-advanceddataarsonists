@@ -106,7 +106,7 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
 
      > How do we get the "importance of the role" ?
    - Random sampling
-   This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part (we call them $\text{pref}(m)$ and $\text{like}(m)$ ).
+   This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part [we call them $\text{pref}(m)$ and $\text{like}(m)$].
 
 6. Modelisation of our project question
 
