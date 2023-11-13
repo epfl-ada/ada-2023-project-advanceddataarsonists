@@ -15,7 +15,7 @@ In the movie industry, creativity is generally considered to be a key factor in 
 
 ## Datasets
 
-In order to download all required dataset, run the [download_dataset.py](src/preprocessing/download_dataset.py) from the root repository (may take a while)
+In order to download all required datasets, run the [download_dataset.py](src/preprocessing/download_dataset.py) from the root repository (may take a while)
 ```
 python ./src/preprocessing/download_dataset.py
 ```
