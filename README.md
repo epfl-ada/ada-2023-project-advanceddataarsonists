@@ -48,8 +48,6 @@ py .\src\preprocessing\load_dataset.py
 
 Our question revolves around actors, their *associated* personas and how well this *association* influences the success of a film. To that end, we need to define a metric of "success" of a film, even if we are already provided with the `box_office` column in the cmu dataset, it only include data for the bigger blockbusters. We have therefore decided to use the imdb rating of the film as a metric defining its performance.
 
-> Note: As a possible extension, we could use a sentiment analysis algorithm on imdb's review dataset in order to retrieve a distribution of sentiment. This could enable us to define a more refined metric than simply the average (`stddev + median`, `q05 + q95`, ...)
-
 We also used the `people` and `principals` collections from IMDb to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
 
 ### WikiData translation to merge datasets
