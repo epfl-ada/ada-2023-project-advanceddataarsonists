@@ -75,7 +75,7 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
 
    > Note : We must ensure that the global distribution of personas is computed accross all actors with at least $K$ personas.
 
-3. Define a `preference metric` for each actors :
+3. Define a **preference metric** for each actors :
 
    To determine to what extent a given actor $A$ prefer playing a certain persona, we need to metric to quantify this preference. Here are a list of proposed metric
 
@@ -87,10 +87,7 @@ We have written a [script](src/preprocessing/download_dataset.py) that automatic
 
       > Note that this metric is not well-behaved as it is not bounded. We can take the inverse to keep a value between 0 and 1, the value 1 would mean that $A$ plays each persona randomly and 0 would mean that $A$ keeps playing the same persona
    
-   - `Mutual Information`:
-      $$
-         f(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}
-      $$
+   - Mutual Information: $$f(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$
 
       This metric has the following property
       - If the actor $A$ always plays the same persona, then $f(A) = 1$
