@@ -177,6 +177,9 @@ def load_imdb_title_basics():
     imdb_names_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_TITLE_BASICS), dtype={4: str}, sep='\t')
     # Only keep the ones labeled as movies
     imdb_names_df = imdb_names_df[imdb_names_df['titleType'] == 'movie']
+
+    imdb_names_df["genres"] = imdb_names_df["genres"].apply(lambda s : s.split(",") if s != '\\N' else s)
+
     return imdb_names_df
 
 
@@ -207,6 +210,10 @@ def load_imdb_person_basics():
     """
 
     imdb_name_basics_df = pd.read_csv(os.path.join(IMDB_PATH, IMDB_NAME_BASICS), sep='\t')
+
+    imdb_name_basics_df["primaryProfession"] = imdb_name_basics_df["primaryProfession"].apply(lambda s : s.split(",") if pd.notnull(s) else s)
+    imdb_name_basics_df["knownForTitles"] = imdb_name_basics_df["knownForTitles"].apply(lambda s : s.split(",") if pd.notnull(s) else s)
+
     return imdb_name_basics_df
 
 
