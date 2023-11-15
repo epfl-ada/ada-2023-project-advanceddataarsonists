@@ -130,7 +130,7 @@ def ensure_database_availability():
         }
         '''
 
-        print('[x] No cached data for translation for wiki_movie_id to imdb\' tconst')
+        print('[x] No cached data for translation for characters wiki id to imdb\' tconst')
         result = download_wikidata_query(query=query, file=translation_characters_id_wikidata_path)
         
 
