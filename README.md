@@ -62,8 +62,9 @@ Properties and examples of application of those metrics are provided in the note
 
 3. Define a **preference metric** for each actors :
 
-   To determine to what extent a given actor $A$ plays diverse roles or not, we need to metric to quantify this preference. Here are a list of proposed metric
+   To determine to what extent a given actor $A$ plays diverse roles or not, we need to metric to quantify this preference. We need some ways to compute a preference metric from a given distribution of played personas by an actor. This metric would quantify by how much his roles are different from the global distribution of roles. For instance, this metric could take high value if the actor plays personas that nobody else play and low value if his roles follow the general distribution of personas.
 
+<!-- 
    - **Cross Entropy**: 
    
    The Cross Entropy Metric focuses on the entropy of persona choices given the actor
@@ -74,8 +75,8 @@ Properties and examples of application of those metrics are provided in the note
       - If the actor $a$ plays each persona randomly (same distribution than the global distribution), then $\text{pref}(a) = 1$
 
       > Note that this metric is not well-behaved as it is not bounded. We can take the inverse to keep a value between 0 and 1, the value 1 would mean that $A$ plays each persona randomly and 0 would mean that $A$ keeps playing the same persona
-   
-   - **Mutual Information**: 
+    -->
+   <!-- - **Mutual Information**: 
    
    Mutual Information Metric captures the information gain about the actor's persona choices relative to the global persona distribution
    $$\text{pref}(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$
@@ -84,7 +85,7 @@ Properties and examples of application of those metrics are provided in the note
       - If the actor $a$ always plays the same persona, then $\text{pref}(a) = 1$
       - If the actor $a$ plays each persona randomly (same distribution than the global distribution), then $\text{pref}(a) = 0$
 
-      >Both metrics offer insights into the diversity or consistency of an actor's persona preferences.
+      >Both metrics offer insights into the diversity or consistency of an actor's persona preferences. -->
         
 
 4. Define a **likelihood metric** for each actors :
