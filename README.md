@@ -36,7 +36,9 @@ We downloaded a dataset of 500 highly curated tropes with corresponding characte
 
 ## Methods
 
-
+### Part I - Refining the movie dataset and enriching characters
+The first step of our data analysis pipeline is dedicated to the creation of two collections: (1) movies with ratings and optional summaries and (2) movie characters and corresponding actors.
+***
 1. Retrieve Actors' Persona and Genre Distribution:
 
    Group all characters across all movies by **actors**.
