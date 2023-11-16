@@ -36,13 +36,13 @@ We downloaded a dataset of 500 highly curated tropes with corresponding characte
 
 ## Methods
 
-We divide our data analysis pipeline into XXX parts.
+We divide our data analysis pipeline into 4 parts.
 
 ### Part I - Refining the movie dataset and enriching characters
 The first step of our data analysis pipeline is dedicated to the creation of two collections: (1) movies with ratings and optional summaries and (2) movie characters and corresponding actors.  
 As stated above, we need a way of measuring the performance of a movie. To do so we chose to enrich the CMU movies with ratings from IMDb and use mean rating as a metric. Once this collection is created, we filter CMU characters to keep the ones appearing in those movies. We use IMDb actor and character data to enrich the CMU collection by filling missing values for character names and actor features.
 
-### Part II - Adding character tropes
+### Part II - Character tropes and metrics definition
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
 (1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
 (2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
@@ -59,7 +59,7 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 ### Part III - Adding movie based comfort zones
 The third step is dedicated to the computation of comfort zones based on movie genre. For each actor, we have aggregated all movie data and computed a frequency vector of genres. Each element of the vector reflects the fraction of movies of a given genre that the actor played. The genre labels are saved separately. The resulting vector is added as a new column to our collection of movies characters and corresponding actors.
 
-### Part IV - Modelisation of our project question
+### Part IV - Causal analysis
 
 To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
      
