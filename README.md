@@ -104,7 +104,7 @@ Properties and examples of application of those metrics are provided in the note
 
 `Note :` Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
 
-### Part II : Modelisation of our project question
+### Part III : Modelisation of our project question
 
 To determine if actors' preferences influence the success of a movie we will explore the following ideas :
 
