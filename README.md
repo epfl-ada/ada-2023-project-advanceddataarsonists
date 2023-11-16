@@ -62,31 +62,7 @@ Properties and examples of application of those metrics are provided in the note
 
 3. Define a **preference metric** for each actors :
 
-   To determine to what extent a given actor $A$ plays diverse roles or not, we need to metric to quantify this preference. We need some ways to compute a preference metric from a given distribution of played personas by an actor. This metric would quantify by how much his roles are different from the global distribution of roles. For instance, this metric could take high value if the actor plays personas that nobody else play and low value if his roles follow the general distribution of personas.
-
-<!-- 
-   - **Cross Entropy**: 
-   
-   The Cross Entropy Metric focuses on the entropy of persona choices given the actor
-   $$\text{pref}(\text{actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor} = \text{actor})}$$
-
-      This metric has the following property
-      - If the actor $a$ always plays the same persona, then $\text{pref}(a) = +\infty$
-      - If the actor $a$ plays each persona randomly (same distribution than the global distribution), then $\text{pref}(a) = 1$
-
-      > Note that this metric is not well-behaved as it is not bounded. We can take the inverse to keep a value between 0 and 1, the value 1 would mean that $A$ plays each persona randomly and 0 would mean that $A$ keeps playing the same persona
-    -->
-   <!-- - **Mutual Information**: 
-   
-   Mutual Information Metric captures the information gain about the actor's persona choices relative to the global persona distribution
-   $$\text{pref}(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$
-      
-      This metric has the following property
-      - If the actor $a$ always plays the same persona, then $\text{pref}(a) = 1$
-      - If the actor $a$ plays each persona randomly (same distribution than the global distribution), then $\text{pref}(a) = 0$
-
-      >Both metrics offer insights into the diversity or consistency of an actor's persona preferences. -->
-        
+   To determine to what extent a given actor $A$ plays diverse roles or not, we need to metric to quantify this preference. We need some ways to compute a preference metric from a given distribution of played personas by an actor. This metric would quantify by how much his roles are different from the global distribution of roles. For instance, this metric could take high value if the actor plays personas that nobody else play and low value if his roles follow the general distribution of personas.        
 
 4. Define a **likelihood metric** for each actors :
 
@@ -106,23 +82,16 @@ Properties and examples of application of those metrics are provided in the note
 
 ### Part III : Modelisation of our project question
 
-To determine if actors' preferences influence the success of a movie we will explore the following ideas :
-
-   - Naïve model :
-
-     We can then try to find if there are a correlation between $(\text{pref}(m), \text{like}(m))$ and the success of the film defined in step `1.`. A naïve approach would be to estimate the *p-value* of the hypothesis $H_0$ defined as **"The probability that both metrics and the success of the film is uncorrelated"**. We could then try to build a confidence interval on the correlation metric (Pearson's correlation coefficient).
+To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
 
    - Causal analysis :
      
-     To determine if the movie's success is driven by the fact that an actor played a role outside of his comfort zone, we can use $\text{pref}(m)$ and $\text{like}(m)$. We first cluster movies in different groups according to their $\text{pref}(m)$ and $\text{like}(m)$ (movies with similar metrics should be clustered in the same group). Algorithms such as :
+   We first cluster movies in 2 groups according to the parameters that we want to study (movies with similar parameters should be clustered in the same group). Algorithms such as :
      
-     - K-means clustering
-     - Fisher LDA
-     can be used to cluster similar movies.
-
-     Then for a given movie, we use as many covariates as we can (budget, genre, release date, ...) and the two metrics mentioned before on all of the actors. The metric of step `4.` is used for the actor and the persona played by the actor for the movie.
-
-
+    - K-means clustering
+    - Fisher LDA
+   can be used to cluster similar movies.
+   For example, those 2 groups can represent if actors who played in the movie stepped out of their comfort zone or not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
 
 ## Proposed timeline
 
