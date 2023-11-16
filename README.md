@@ -90,8 +90,7 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | Teammate | Contributions |
 |-|-|
 | Fares | Refine README |
-| Guillaume | Automate dataset retrieval  
-Provide helper python file to load datasets |
+| Guillaume | Automate dataset retrieval <br/> Provide helper python file to load datasets |
 | Luca | CMU and IMDb data detailed exploration and joining steps, Explore movie base comfort zones, Refine and complete README |
 | Michael | Automate dataset retrieval, Draft of README, WikiData translation data retrieval, Run CMU persona pipeline, Rework project questions, Refine and complete README |
 | Syrine | Initial data exploration, TVTropes dataset exploration,  |
