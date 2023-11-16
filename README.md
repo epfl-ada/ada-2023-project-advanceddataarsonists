@@ -79,7 +79,9 @@ Properties and examples of application of those metrics are provided in the note
 
 > Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
 
-### Part III : Modelisation of our project question
+### Part III - Adding movie based comfort zones
+
+### Part IV - Modelisation of our project question
 
 To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
      
