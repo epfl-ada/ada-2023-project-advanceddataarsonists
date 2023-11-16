@@ -44,11 +44,10 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 
 ### Part II - Adding character tropes
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
-(1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
-(2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$f(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
+(1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
+(2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook.
 
-***
 1. Retrieve Actors' Persona and Movies' Genre Distribution:
 
    Group all characters across all movies by **actors**.
