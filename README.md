@@ -80,7 +80,7 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | 17 Nov 2023 - 01 Dec 2023 | Homework 2 |
 | 01 Dec 2023 | **Homework 2 deadline** |
 | 01 Dec 2023 - 08 Dec 2023 | Provide answers to research questions 1, 2 and 3 |
-| 08 Dec 2023 - 15 Dec 2023 | Provide answers to research questions 4, 5 and 6. Draft datastory. |
+| 08 Dec 2023 - 15 Dec 2023 | Perform causal analysis to answer research questions 4, 5 and 6. Draft datastory. |
 | 15 Dec 2023 | Complete draft of the final datastory |
 | 15 Dec 2023 - 20 Dec 2023 | Generate and incorporate visualizations to support the datastory |
 | 20 Dec 2023 - 22 Dec 2023 | Polishing steps: clean up repository, complete code comments, ensure reproducibility |
