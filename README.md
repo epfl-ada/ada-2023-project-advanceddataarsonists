@@ -97,9 +97,8 @@ Properties and examples of application of those metrics are provided in the note
    
    As we want to predict the success of a movie, we need to aggregate the metrics defined earlier for each actor who plays in the movie.  We propose the following aggregation strategies :
    - Mean/median over both metrics
-   - Weighted average on the "importance" of the roles of the actor (where actors who play a more important role in the movie will have a higher weight)
+   - Weighted average on the "importance" of the roles of the actor (where actors who play a more important role in the movie will have a higher weight). This can be done using the "knownForTitles" column of the names basics dataframe. This column contains the principal roles of an actor. We can thus assume that those roles have a significant impact on their corresponding movies.
 
-     > How do we get the "importance of the role" ?
    - Random sampling
    This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part [we call them $\text{pref}(m)$ and $\text{like}(m)$].
 
