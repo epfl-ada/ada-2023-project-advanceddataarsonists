@@ -50,7 +50,7 @@ Properties and examples of application of those metrics are provided in the note
   
 We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
 
-Finally, as we want to predict the success of a movie, we need to aggregate both metrics for each actor who plays in a given movie.  We propose the following aggregation strategies:
+As we want to analyze how both metrics relate to the success of a movie, we need to aggregate them for each actor who plays in a given movie.  We propose the following aggregation strategies:
 - Mean/median over both metrics
 - Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
 
@@ -69,7 +69,7 @@ We first cluster movies in 2 groups according to the parameters that we want to 
    - Fisher LDA
 
 can be used to cluster similar movies.
-For example, those 2 groups can represent if actors who played in the movie stepped out of their comfort zone or not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
+As an example, those 2 groups could represent: (1) actors who played in the movie stepped out of their comfort zone or (2) they did not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
 
 ## Proposed timeline
 
@@ -84,4 +84,6 @@ For example, those 2 groups can represent if actors who played in the movie step
 | 15 Dec 2023 | Finalize code implementations, Draft of the final datastory |
 | 20 Dec 2023 | Create all visualizations for datastory and complete final text |
 | 22 Dec 2023 | **Milestone 3 deadline** |
+
+## Organization within the team
 
