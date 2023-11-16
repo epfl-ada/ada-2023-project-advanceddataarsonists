@@ -75,10 +75,9 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 
 | Date | Goal |
 |-|-|
-| 3 Nov 2023 | In depth CMU data exploration, data cleaning, preprocessing |
-| 10 Nov 2023 | Enriching dataset with IMDB and TVTropes , visualisation of different distributions, initial analysis  |
+| 27 Oct 2023 - 17 Nov 2023 | Execute parts I to III  |
 | 17 Nov 2023 | **Milestone 2 deadline**  |
-| 24 Nov 2023 | Start working on the project model , focus on Homework 2|
+| 17 Nov 2023 - 01 Dec 2023 | Homework 2 |
 | 01 Dec 2023 | **Homework 2 deadline** |
 | 08 Dec 2023 | Provide detailed analysis for each research question |
 | 15 Dec 2023 | Finalize code implementations, Draft of the final datastory |
