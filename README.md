@@ -35,30 +35,27 @@ To merge movies from different sources (CMU and IMDb), we need a translation lay
 We downloaded a dataset of 500 highly curated tropes with corresponding characters from [TVTropes](https://tvtropes.org/) to enrich our personas data.
 
 ## Methods
-### T-tests
-To answer research question 4, we plan on using t-tests between the two groups of movies to uncover if there exists a significant difference between the groups' mean rating. We will also compute the 95% CI.
-## Proposed timeline
 
-## Organization
 
-# BELOW IS OLD METHODS SECTION THAT HAS TO BE SHORTENED/MOVED
-## Methods
+1. Retrieve Actors' Persona and Genre Distribution:
 
-1. Retrieve actors persona distribution :
-
-   During this stage, we group all **characters** accross all films by **actors**. For each **characters** we retrieve the corresponding **personas** (as defined in the `cmu` dataset). This enables us to extract the distribution of persona for each **actors**. We then filter all **actors** playing more than a certain threshold $K$ personas.
+   Group all characters across all movies by **actors**.
+   For each **characters**, retrieve the corresponding personas and movie genres (as defined in the `cmu` dataset).
+   This enables the extraction of the distribution of personas and movie genres for each actor, Then we filter out **actors** playing more than a certain threshold of personas or genres.
 
 2. Retrieve global persona distribution :
 
-   In order to make comparaison about **actors personas**, we need to compare it to the global persona distribution. To do so, we need to extract this global persona distribution
-
-   > Note : We must ensure that the global distribution of personas is computed accross all actors with at least $K$ personas.
+   Extract the global persona and genre distribution to enable comparisons.
+   > Note :The global distribution of personas and genres is computed across all actors with at least a certain threshold of personas or genres.
 
 3. Define a **preference metric** for each actors :
 
    To determine to what extent a given actor $A$ prefer playing a certain persona, we need to metric to quantify this preference. Here are a list of proposed metric
 
-   - **Cross Entropy**: $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$
+   - **Cross Entropy**: 
+   
+   The Cross Entropy Metric focuses on the entropy of persona choices given the actor
+   $$f(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$
 
       This metric has the following property
       - If the actor $A$ always plays the same persona, then $f(A) = +\infty$
@@ -66,15 +63,21 @@ To answer research question 4, we plan on using t-tests between the two groups o
 
       > Note that this metric is not well-behaved as it is not bounded. We can take the inverse to keep a value between 0 and 1, the value 1 would mean that $A$ plays each persona randomly and 0 would mean that $A$ keeps playing the same persona
    
-   - Mutual Information: $$f(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$
-
+   - **Mutual Information**: 
+   
+   Mutual Information Metric captures the information gain about the actor's persona choices relative to the global persona distribution
+   $$f(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$
+      
       This metric has the following property
       - If the actor $A$ always plays the same persona, then $f(A) = 1$
       - If the actor $A$ plays each persona randomly (same distribution than the global distribution), then $f(A) = 0$
+
+      >Both metrics offer insights into the diversity or consistency of an actor's persona preferences.
         
+
 4. Define a **likelihood metric** for each actors :
 
-   To determine how likely a given actor $A$ is to play a persona $P$, we need a metric to estimate $P(P | A)$. The empirical probability can be used to estimate this likelihood
+   To determine how likely a given actor $A$ is to play a persona $P$ or in a specific movie genre, we need a metric to estimate both of $P(Persona | Actor)$ and $P(MovieGenre | Actor)$. The empirical probability can be used to estimate this likelihood
 
 
 5. Aggregate **preference metric** and **likelihood metric** for a given movie :  
@@ -156,3 +159,25 @@ This approach, even though still relatively simple, overlooked some major bias t
    
 
      - Matching between *neutral actors* and *actors* with a preferrence (however this may end up being complexify by the limited amount)
+
+
+
+### T-tests
+To answer research question 4, we plan on using t-tests between the two groups of movies to uncover if there exists a significant difference between the groups' mean rating. We will also compute the 95% CI.
+
+
+
+## Proposed timeline
+
+| Date | Goal |
+|-|-|
+| 3 Nov 2023 | In depth CMU data exploration, data cleaning, preprocessing |
+| 10 Nov 2023 | Enriching dataset with IMDB and TVTropes , visualisation of different distributions,initial analysis  |
+| 17 Nov 2023 | **Milestone 2 deadline**  |
+| 24 Nov 2023 | Start working on the project model , focus on Homework 2|
+| 01 Dec 2023 | **Homework 2 deadline** |
+| 08 Dec 2023 | Provide detailed analysis for each research question |
+| 15 Dec 2023 | Finalize code implementations , Draft of the final datastory |
+| 20 Dec 2023 | Create all visualizations for datastory and complete final text |
+| 22 Dec 2023 | **Milestone 3 deadline** |
+
