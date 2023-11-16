@@ -59,7 +59,7 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 ### Part III - Adding movie based comfort zones
 The third step is dedicated to the computation of comfort zones based on movie genre. For each actor, we have aggregated all movie data and computed a frequency vector of genres. Each element of the vector reflects the fraction of movies of a given genre that the actor played. The genre labels are saved separately. The resulting vector is added as a new column to our collection of movies characters and corresponding actors.
 
-### Part IV - Causal analysis
+### Part IV - Causal analysis and clustering
 
 To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
      
@@ -79,7 +79,7 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | 17 Nov 2023 | **Milestone 2 deadline**  |
 | 17 Nov 2023 - 01 Dec 2023 | Homework 2 |
 | 01 Dec 2023 | **Homework 2 deadline** |
-| 01 Dec 2023 - 08 Dec 2023 | Provide answers to research questions 1, 2 and 3 |
+| 01 Dec 2023 - 08 Dec 2023 | Create visual and compute collection statistics to answer research questions 1, 2 and 3 |
 | 08 Dec 2023 - 15 Dec 2023 | Perform causal analysis to answer research questions 4, 5 and 6. Draft datastory. |
 | 15 Dec 2023 | Complete draft of the final datastory |
 | 15 Dec 2023 - 20 Dec 2023 | Generate and incorporate visualizations to support the datastory |
