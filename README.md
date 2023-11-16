@@ -83,15 +83,14 @@ Properties and examples of application of those metrics are provided in the note
 ### Part III : Modelisation of our project question
 
 To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
+     
+We first cluster movies in 2 groups according to the parameters that we want to study (movies with similar parameters should be clustered in the same group). Algorithms such as :
 
-   - Causal analysis :
-     
-   We first cluster movies in 2 groups according to the parameters that we want to study (movies with similar parameters should be clustered in the same group). Algorithms such as :
-     
-    - K-means clustering
-    - Fisher LDA
-   can be used to cluster similar movies.
-   For example, those 2 groups can represent if actors who played in the movie stepped out of their comfort zone or not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
+   - K-means clustering
+   - Fisher LDA
+
+can be used to cluster similar movies.
+For example, those 2 groups can represent if actors who played in the movie stepped out of their comfort zone or not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
 
 ## Proposed timeline
 
