@@ -85,5 +85,12 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | 20 Dec 2023 | Create all visualizations for datastory and complete final text |
 | 22 Dec 2023 | **Milestone 3 deadline** |
 
-## Organization within the team
+## Organization within the team for P2
 
+| Teammate | Contributions |
+|-|-|
+| Fares | XXX |
+| Guillaume | XXX |
+| Luca | XXX |
+| Michael | XXX |
+| Syrine | XXX |
