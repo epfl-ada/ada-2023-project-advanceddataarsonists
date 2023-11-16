@@ -36,8 +36,14 @@ We downloaded a dataset of 500 highly curated tropes with corresponding characte
 
 ## Methods
 
+We divide our data analysis pipeline into XXX parts.
+
 ### Part I - Refining the movie dataset and enriching characters
-The first step of our data analysis pipeline is dedicated to the creation of two collections: (1) movies with ratings and optional summaries and (2) movie characters and corresponding actors.
+The first step of our data analysis pipeline is dedicated to the creation of two collections: (1) movies with ratings and optional summaries and (2) movie characters and corresponding actors.  
+As stated above, we need a way of measuring the performance of a movie. To do so we chose to enrich the CMU movies with ratings from IMDb and use mean rating as a metric. Once this collection is created, we filter CMU characters to keep the ones appearing in those movies. We use IMDb actor and character data to enrich the CMU collection by filling missing values for characters and actor features.
+
+
+
 ***
 1. Retrieve Actors' Persona and Genre Distribution:
 
