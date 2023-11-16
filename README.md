@@ -46,27 +46,9 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
 (1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
 (2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
-Properties and examples of application of those metrics are provided in the notebook.
-
-1. Retrieve Actors' Persona and Movies' Genre Distribution:
-
-   Group all characters across all movies by **actors**.
-   For each **characters**, retrieve the corresponding personas and movie genres (as defined in the `cmu` dataset).
-   This enables the extraction of the distribution of personas and movie genres for each actor, Then we filter out **actors** playing more than a certain threshold of personas or genres.
-
-2. Retrieve global persona distribution :
-
-   Extract the global persona and genre distribution to enable comparisons.
-   > Note :The global distribution of personas and genres is computed across all actors with at least a certain threshold of personas or genres.
-
-3. Define a **preference metric** for each actors :
-
-   To determine to what extent a given actor $A$ plays diverse roles or not, we need to metric to quantify this preference. We need some ways to compute a preference metric from a given distribution of played personas by an actor. This metric would quantify by how much his roles are different from the global distribution of roles. For instance, this metric could take high value if the actor plays personas that nobody else play and low value if his roles follow the general distribution of personas.        
-
-4. Define a **likelihood metric** for each actors :
-
-   To determine how likely a given actor $A$ is to play a persona $P$ or in a specific movie genre, we need a metric to estimate both of $P(\text{Persona} | \text{Actor} = \text{a})$ and $P(\text{MovieGenre} | \text{Actor} = \text{a})$. The empirical probability can be used to estimate this likelihood
-
+Properties and examples of application of those metrics are provided in the notebook.  
+  
+We also introduce a metric to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
 
 5. Aggregate **preference metric** and **likelihood metric** for a given movie :  
    
