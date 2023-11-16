@@ -2,14 +2,14 @@
 
 ## Abstract
 
-In the movie industry, creativity is generally considered to be a key factor in the success of a film. Actors often need to reinvent themselves to keep audiences hooked, but do they really ? Some actors tend to develop a comfort zone and keep playing the same type of movies / characters. Our projects aims at discovering those comfort zones, when they are created and what happens when actors step out of it. Conversly, we also want to evaluate if a given role/character tends to be played only by a subset of actors and which feature/s these actors share, which could lead us to uncover racial or gender biases in film castings. We build on top of the results of the [original paper](http://www.cs.cmu.edu/~ark/personas/) in order to identify in a more fine-grained approach if an actors exhibit a recurring persona accross the characters they play.
+In the movie industry, creativity is generally considered to be a key factor in the success of a film. Actors often need to reinvent themselves to keep audiences hooked, but do they really ? Some actors tend to develop a comfort zone and keep playing the same type of movies / characters. Our projects aims at discovering those comfort zones, when they are created and what happens when actors step out of it. Conversly, we also want to evaluate if a given role/character tends to be played only by a subset of actors and which feature/s these actors share, which could lead us to uncover racial or gender biases in film castings. We build on top of the results of the [original paper](http://www.cs.CMU.edu/~ark/personas/) in order to identify in a more fine-grained approach if an actors exhibit a recurring persona accross the characters they play.
 
 ## Research questions
 
 1. What is the proportion of actors that tend to play the same type of movies ?
 2. When did an actor start to play in similar movies/similar characters ?
 3. Do actors exhibit a recurring persona accross the characters they play ?
-4. Is there a clear distribution shift in the perfromance of a movie when this actor is/isn't in his comfort zone ?
+4. Is there a clear distribution shift in the performance of a movie when this actor is/isn't in his comfort zone ?
 5. Are there roles that are acclaimed only when they are played by a specific group of actors ?
 6. Which features of an actor impact the distribution of his roles ?
 
@@ -22,7 +22,7 @@ python ./src/preprocessing/download_dataset.py
 
 ### IMDb
 
-We need to define a metric of "success" of a film. Even if we are already provided with the `box_office` column in the cmu dataset, it only includes data for the bigger blockbusters, which represent only 10% of the movies. We have therefore decided to use the imdb rating of the film as a metric defining its performance.
+We need to define a metric of "success" of a film. Even if we are already provided with the `box_office` column in the CMU dataset, it only includes data for the bigger movies, which represent only 10% of the movies. We have therefore decided to use the IMDb rating of the film as a metric defining its performance.
 
 We also used the `people` and `principals` collections from IMDb to enrich the `characters` collection from the CMU corpus, reducing the amount of missing information.
 
@@ -44,8 +44,9 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 
 ### Part II - Character tropes and metrics definition
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
-(1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
-(2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
+(1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor} = \text{actor})}$$
+
+(2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
   
 We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
@@ -61,7 +62,7 @@ The third step is dedicated to the computation of comfort zones based on movie g
 
 ### Part IV - Causal analysis and clustering
 
-To determine if some parameters (such as actors' preferences, movies' genres or actors' attributes) influence the success of a movie we will perform a causal analysis :
+To determine if actors' preferences influence the success of a movie we will perform a causal analysis :
      
 We first cluster movies in 2 groups according to the parameters that we want to study (movies with similar parameters should be clustered in the same group). Algorithms such as :
 
@@ -70,6 +71,8 @@ We first cluster movies in 2 groups according to the parameters that we want to 
 
 can be used to cluster similar movies.
 As an example, those 2 groups could represent: (1) actors who played in the movie stepped out of their comfort zone or (2) they did not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
+
+> Note : This pipeline can be extended to other parameters than personas such as genres, ethnicities and movie genres.
 
 ## Proposed timeline
 
@@ -91,7 +94,7 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | Teammate | Contributions |
 |-|-|
 | Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README |
-| Guillaume | Automate dataset retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics|
+| Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics|
 | Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README |
-| Michael | Automate dataset retrieval <br/> Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Rework project questions <br/> Refine and complete README |
+| Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Refine and complete README |
 | Syrine | Initial data exploration <br/> TVTropes dataset exploration |
