@@ -12,6 +12,18 @@ DATASET_CACHE_PATH = join('.', 'data', 'cache')
 WIKIDATA_QUERY_URL = 'https://query.wikidata.org/sparql'
 
 def unpack_gz(gzipped_file_name, work_dir):
+    """
+    Unzip file or folder using 'gz'. The unzipped file is 'work_dir/gzipped_file_name' 
+    and is unzipped in the same work_dir
+
+    Parameters
+    ----------
+    gzipped_file_name : str
+        File name
+    work_dir : str
+        Working directory    
+    """
+
     filename = split(gzipped_file_name)[-1]
     filename = re.sub(r"\.gz$", "", filename, flags=re.IGNORECASE)
 
@@ -28,6 +40,19 @@ except Exception as e:
 
 
 def download(url: str, fname: str, chunk_size=1024):
+    """
+    Download file at url and stores it in a file named fname
+    
+    Parameters
+    ----------
+    url : str
+        URL pointing to the file
+    fname : str
+        Name of the file to store the data
+    chunk_size : int, optional
+        Size of the chunk used to iterate the GET response from the URL (default is 1024)
+    """
+
     resp = requests.get(url, stream=True)
     total = int(resp.headers.get('content-length', 0))
 
@@ -42,7 +67,20 @@ def download(url: str, fname: str, chunk_size=1024):
             size = file.write(data)
             bar.update(size)
 
+
 def download_wikidata_query(query: str, file: str):
+    """
+    Send a query to the WikiData database.
+    This function queries the WIKIDATA_QUERY_URL website.
+
+    Parameters
+    ----------
+    query : str
+        The query to send
+    file : str
+        The name of the file to store the result of the query
+    """
+
     print('  - Running query: "{}" (this may take a while)'.format(textwrap.shorten(query.replace('\n', ' '), width=16)))
     r = requests.get(url=WIKIDATA_QUERY_URL, params={ 'format': 'json', 'query': query })
     obj = r.json()
@@ -52,6 +90,11 @@ def download_wikidata_query(query: str, file: str):
         json.dump(obj, file)
 
 def ensure_database_availability():
+    """
+    Download the datasets needed for the analysis.
+    This will create the missing directories if any
+    """
+
     # Dataset to download
     datasets = [
         ('https://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz', 'cmu'),
