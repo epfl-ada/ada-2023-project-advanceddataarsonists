@@ -90,7 +90,7 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 
 | Teammate | Contributions |
 |-|-|
-| Fares | Refine README |
+| Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README |
 | Guillaume | Automate dataset retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics|
 | Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README |
 | Michael | Automate dataset retrieval <br/> Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Rework project questions <br/> Refine and complete README |
