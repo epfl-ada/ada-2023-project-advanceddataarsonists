@@ -79,9 +79,10 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 | 17 Nov 2023 | **Milestone 2 deadline**  |
 | 17 Nov 2023 - 01 Dec 2023 | Homework 2 |
 | 01 Dec 2023 | **Homework 2 deadline** |
-| 08 Dec 2023 | Provide detailed analysis for each research question |
-| 15 Dec 2023 | Finalize code implementations, Draft of the final datastory |
-| 20 Dec 2023 | Create all visualizations for datastory and complete final text |
+| 08 Dec 2023 | TO REFINE |
+| 15 Dec 2023 | Complete draft of the final datastory |
+| 15 Dec 2023 - 20 Dec 2023 | Generate and incorporate visualizations to support the datastory |
+| 20 Dec 2023 - 22 Dec 2023 | Polishing steps: clean up repository, complete code comments, ensure reproducibility |
 | 22 Dec 2023 | **Milestone 3 deadline** |
 
 ## Organization within the team for P2
