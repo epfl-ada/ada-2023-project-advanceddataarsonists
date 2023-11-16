@@ -46,18 +46,13 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
 (1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{Actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor})}$$  
 (2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{Actor}) = \frac{I(\text{Persona}, \text{Actor})}{H(\text{Persona})} = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor}) }{H(\text{Persona})}$$  
-Properties and examples of application of those metrics are provided in the notebook.  
+Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
   
-We also introduce a metric to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
+We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
 
-5. Aggregate **preference metric** and **likelihood metric** for a given movie :  
-   
-   As we want to predict the success of a movie, we need to aggregate the metrics defined earlier for each actor who plays in the movie.  We propose the following aggregation strategies :
-   - Mean/median over both metrics
-   - Weighted average on the "importance" of the roles of the actor (where actors who play a more important role in the movie will have a higher weight). This can be done using the "knownForTitles" column of the names basics dataframe. This column contains the principal roles of an actor. We can thus assume that those roles have a significant impact on their corresponding movies.
-
-   - Random sampling
-   This aggregation gives us a `preference metric` and a `likelihood metric` on the movie $m$ that we can use later for the analysis part [we call them $\text{pref}(m)$ and $\text{like}(m)$].
+Finally, as we want to predict the success of a movie, we need to aggregate both metrics for each actor who plays in a given movie.  We propose the following aggregation strategies:
+- Mean/median over both metrics
+- Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
 
 > Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
 
