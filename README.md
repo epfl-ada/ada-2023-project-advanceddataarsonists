@@ -1,5 +1,9 @@
 ﻿# Unraveling the connections between actors and characters in movies
 
+## Data story
+
+Uncover the mystery behind actors' success [here](https://michelducartier.github.io/ada-jekyll)! 
+
 ## Abstract
 
 In the movie industry, creativity is generally considered to be a key factor in the success of a film. Actors often need to reinvent themselves to keep audiences hooked, but do they really ? Some actors tend to develop a comfort zone and keep playing the same type of movies / characters. Our projects aims at discovering those comfort zones, when they are created and what happens when actors step out of it. Conversly, we also want to evaluate if a given role/character tends to be played only by a subset of actors and which feature/s these actors share, which could lead us to uncover racial or gender biases in film castings. We build on top of the results of the [original paper](http://www.cs.CMU.edu/~ark/personas/) in order to identify in a more fine-grained approach if an actors exhibit a recurring persona accross the characters they play.
@@ -93,8 +97,8 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 
 | Teammate | Contributions |
 |-|-|
-| Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README |
-| Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics|
-| Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README |
-| Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Refine and complete README |
-| Syrine | Initial data exploration <br/> TVTropes dataset exploration |
+| Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README <br/> Analysis of movies' success with actors' characteristics |
+| Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics <br/> Causal analysis on actors personas and movie genres |
+| Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README <br/> Causal analysis on actors personas and movie genres <br/> Data story |
+| Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Refine and complete README <br/> Data story |
+| Syrine | Initial data exploration <br/> TVTropes dataset exploration <br/> Data story |
