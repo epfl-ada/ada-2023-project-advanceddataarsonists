@@ -66,7 +66,6 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 - Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
 
 
-
 > Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
 
 ### Part III - Adding movie based comfort zones
