@@ -69,16 +69,16 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 - Mean/median over both metrics
 - Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
 
-
-> Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
-
 ### Part III - Adding movie based comfort zones
 The third step is dedicated to the computation of comfort zones based on movie genre. For each actor, we have aggregated all movie data and computed a frequency vector of genres. Each element of the vector reflects the fraction of movies of a given genre that the actor played. The genre labels are saved separately. The resulting vector is added as a new column to our collection of movies characters and corresponding actors.
 
 ### Part IV - Data analysis
 
-To answer research questions (1) and (3) we will compute for each actor the distribution of movie genres and personas and apply our predefined metrics. We will plot the resulting ditribution of the metric within the actors for both genres and personas and interpret the mean and deviation of this distribution as indicator of polarization within each category. By sorting on the computed metric score we can extract the most/least polarized actors and plot their personal distribution.  
-TEST
+To answer research questions (1) and (3) we will compute for each actor the distribution of movie genres and personas and apply our predefined metrics. We will plot the resulting ditribution of the metric within the actors for both genres and personas and interpret the mean and deviation of this distribution as indicator of polarization within each category. By sorting on the computed metric score we can extract the most/least polarized actors and plot their personal distribution. Binning by metric score can also help us get a feel of which proportion of actors fall under a certain interval of the metric.  
+For research question (2), we will aggregate actors based on their age, and compute an average persona per age. Then, using the **MIP** of the compute persona for each age group, we can plot the **MIP** score of the persona (which reflects polarization) over actor age and use linear regression to detect the presence or absence of a general trend.  
+Research question (4) is investigated by TODO  
+To try and provide an answer to research question (5) and (6), we  TODO  
+
 
 ## Proposed timeline
 
