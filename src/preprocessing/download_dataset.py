@@ -110,6 +110,9 @@ def ensure_database_availability():
         ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/lr.weights.txt.gz", "cmu/personas"),
         ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/out.phi.weights.gz", "cmu/personas"),
         ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/personaFile.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/finalLAgentsFile.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/finalLModFile.gz", "cmu/personas"),
+        ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/personas/finalLPatientsFile.gz", "cmu/personas"),
         ("https://raw.githubusercontent.com/MichelDucartier/ACL_personas_dump/master/tvtropes/trope2characters.json.gz", "tvtropes")
     ]
 
