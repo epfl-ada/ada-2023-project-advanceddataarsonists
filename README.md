@@ -49,9 +49,13 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 ### Part II - Character tropes and metrics definition
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
 
-The **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
+(1) The **mutual information metric (MIP)** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
 
+(2) The **Herfindahl-Hirschman index (HHI)** which is normally used in economics to capture market concentration. $$ \sum_{i=1}^N s_i^2$$  
+We try to apply it in this context as more naive approach to personas polarization of actors, where the most represented persona would correspond to a company having the largest market share.
+
+Properties those metrics are provided in the notebook.
 
 We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
 
