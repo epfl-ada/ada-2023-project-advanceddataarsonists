@@ -52,7 +52,7 @@ The second step is dedicated to character tropes. In order to determine if an ac
 (1) The **mutual information metric (MIP)** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
 
-(2) The **Herfindahl-Hirschman index (HHI)** which is normally used in economics to capture market concentration. $$\sum_{i=1}^N s_i^2$$ where $s_i$ are market shares from company $i$  
+(2) The **Herfindahl-Hirschman index (HHI)** which is normally used in economics to capture market concentration. $$HHI = \sum_{i=1}^N s_i^2$$ where $s_i$ are market shares from company $i$  
 We try to apply it in this context as more naive approach to personas polarization of actors, where the most represented persona would correspond to a company having the largest market share.
 
 Properties those metrics are provided in the notebook.
