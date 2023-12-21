@@ -109,8 +109,8 @@ To try and provide an answer to research question (5) and (6), we  TODO
 
 | Teammate | Contributions |
 |-|-|
-| Fares | Analysis of movies' success with actors' characteristics |
-| Guillaume | Causal analysis on actors personas and movie genres |
-| Luca | Refine and complete README <br/> Actors personas and movie genres MIP and HHI computations and graph <br/> Data story |
-| Michael | Refine and complete README Data story <br/> Add KL-divergence to the analysis |
-| Syrine | Data story <br/> Initial computation of HHI |
+| Fares | Analysis of movies success with respect to actors' characteristics <br/> Add relevant part to data story |
+| Guillaume | Causal analysis on actors personas and movie genres <br/> Used log-likelyhood metric and ran least-squared regressions |
+| Luca | Refine and complete README <br/> Actors personas and movie genres MIP and HHI computations and graph <br/> Data story <br/> Generate plotly graph for the data story <br/> Notebook overhaul |
+| Michael | Refine and complete README <br/> Come up with data story <br/> Retrieve personas labels <br/> Add KL-divergence to the analysis <br/> Generate plotly graph for the data story |
+| Syrine | Data story <br/> Idea and initial computation of HHI |
