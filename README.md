@@ -49,9 +49,13 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 ### Part II - Character tropes and metrics definition
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
 
-(1) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
+(1) The **mutual information metric (MIP)** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
 
+(2) The **Herfindahl-Hirschman index (HHI)** which is normally used in economics to capture market concentration. $$HHI = \sum_{i=1}^N s_i^2$$ where $s_i$ are market shares from company $i$  
+We try to apply it in this context as more naive approach to personas polarization of actors, where the most represented persona would correspond to a company having the largest market share.
+
+Properties those metrics are provided in the notebook.
 
 We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
 
@@ -65,25 +69,16 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 - Mean/median over both metrics
 - Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
 
-
-> Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
-
 ### Part III - Adding movie based comfort zones
 The third step is dedicated to the computation of comfort zones based on movie genre. For each actor, we have aggregated all movie data and computed a frequency vector of genres. Each element of the vector reflects the fraction of movies of a given genre that the actor played. The genre labels are saved separately. The resulting vector is added as a new column to our collection of movies characters and corresponding actors.
 
-### Part IV - Causal analysis and clustering
+### Part IV - Data analysis
 
-To determine if actors' preferences influence the success of a movie we will perform a causal analysis :
-     
-We first cluster movies in 2 groups according to the parameters that we want to study (movies with similar parameters should be clustered in the same group). Algorithms such as :
+To answer research questions (1) and (3) we will compute for each actor the distribution of movie genres and personas and apply our predefined metrics. We will plot the resulting ditribution of the metric within the actors for both genres and personas and interpret the mean and deviation of this distribution as indicator of polarization within each category. By sorting on the computed metric score we can extract the most/least polarized actors and plot their personal distribution. Binning by metric score can also help us get a feel of which proportion of actors fall under a certain interval of the metric.  
+For research question (2), we will aggregate actors based on their age, and compute an average persona per age. Then, using the **MIP** of the compute persona for each age group, we can plot the **MIP** score of the persona (which reflects polarization) over actor age and use linear regression to detect the presence or absence of a general trend.  
+Research question (4) is investigated by TODO  
+To try and provide an answer to research question (5) and (6), we  TODO  
 
-   - K-means clustering
-   - Fisher LDA
-
-can be used to cluster similar movies.
-As an example, those 2 groups could represent: (1) actors who played in the movie stepped out of their comfort zone or (2) they did not. Those 2 groups are analguous to the treated/control groups for causal analysis. Then we can use the methods seen in class such as matching with propensity scores to mitigate unseen correlation, and sensitivity analysis to quantify our uncertainty.
-
-> Note : This pipeline can be extended to other parameters than personas such as genres, ethnicities and movie genres.
 
 ## Proposed timeline
 
@@ -104,8 +99,18 @@ As an example, those 2 groups could represent: (1) actors who played in the movi
 
 | Teammate | Contributions |
 |-|-|
-| Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README <br/> Analysis of movies' success with actors' characteristics |
-| Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics <br/> Causal analysis on actors personas and movie genres |
-| Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README <br/> Causal analysis on actors personas and movie genres <br/> Data story |
-| Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics <br/> Refine and complete README <br/> Data story |
-| Syrine | Initial data exploration <br/> TVTropes dataset exploration <br/> Data story |
+| Fares | CMU and IMDb initial exploration<br/>WikiData translation data retrieval<br/>Refine README |
+| Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics |
+| Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README |
+| Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics |
+| Syrine | Initial data exploration <br/> TVTropes dataset exploration <br/> |
+
+## Organization within the team for P3
+
+| Teammate | Contributions |
+|-|-|
+| Fares | Analysis of movies' success with actors' characteristics |
+| Guillaume | Causal analysis on actors personas and movie genres |
+| Luca | Refine and complete README <br/> Actors personas and movie genres MIP and HHI computations and graph <br/> Data story |
+| Michael | Refine and complete README Data story <br/> Add KL-divergence to the analysis |
+| Syrine | Data story <br/> Initial computation of HHI |
