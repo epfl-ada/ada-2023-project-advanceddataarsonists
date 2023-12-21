@@ -75,10 +75,10 @@ As we want to analyze how both metrics relate to the success of a movie, we need
 ### Part III - Adding movie based comfort zones
 The third step is dedicated to the computation of comfort zones based on movie genre. For each actor, we have aggregated all movie data and computed a frequency vector of genres. Each element of the vector reflects the fraction of movies of a given genre that the actor played. The genre labels are saved separately. The resulting vector is added as a new column to our collection of movies characters and corresponding actors.
 
-### Part IV - Causal analysis
+### Part IV - Data analysis
 
-To determine if actors' preferences influence the success of a movie we will perform a causal analysis:
-TO_WRITE
+To answer research questions (1) and (3) we will compute for each actor the distribution of movie genres and personas and apply our predefined metrics. We will plot the resulting ditribution of the metric within the actors for both genres and personas and interpret the mean and deviation of this distribution as indicator of polarization within each category. By sorting on the computed metric score we can extract the most/least polarized actors and plot their personal distribution.  
+TEST
 
 ## Proposed timeline
 
