@@ -48,16 +48,24 @@ As stated above, we need a way of measuring the performance of a movie. To do so
 
 ### Part II - Character tropes and metrics definition
 The second step is dedicated to character tropes. In order to determine if an actor exhibits a reccurring persona accross his characters we introduce two possible metrics that measure to what extent an actor prefers playing a certain persona:  
-(1) The **cross entropy metric** which computes the entropy of persona choices given the actor $$pref(\text{actor}) = \frac{ H(\text{Persona}) }{ H(\text{Persona} | \text{Actor} = \text{actor})}$$
 
-(2) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
+(1) the **mutual information metric** which captures the information gain about the actor's persona choices relative to the global persona distribution $$pref(\text{actor}) = \frac{ H(\text{Persona}) - H(\text{Persona} | \text{Actor} = \text{actor}) }{H(\text{Persona})}$$  
 Properties and examples of application of those metrics are provided in the notebook. The chosen metric is called `pref`.  
-  
+
+
 We also introduce a metric called `like` to determine how likely a given actor is to play a given persona. The empirical probability can be used to estimate this likelihood: $P(\text{Persona} | \text{Actor} = \text{a})$  
+
+To this end, we use a variant of KL divergence to measure the difference of distribution between the current genre distribution of the current movie and the prior distribution for a given actor. More specifically given and actor $a \in A$ and a role $r \in R$. We define our `like` metric has
+
+$$
+   \text{like}(a, r) = \sum_{i=1}^N \sum_{x\in\{0,1\}} p(P_i = x | R = r) \log \left( \frac{p(P_i = x | R = r)}{p(P_i = x | A = a)} \right)
+$$
 
 As we want to analyze how both metrics relate to the success of a movie, we need to aggregate them for each actor who plays in a given movie.  We propose the following aggregation strategies:
 - Mean/median over both metrics
 - Weighted average on the "importance" of the roles of the actor using IMDb `knowForTitles` data.
+
+
 
 > Note : Both metric $\text{like}$ and $\text{pref}$ are required together in order to differentiate between actors without any preferences playing a role that is rare against actors with a clear preferences playing a persona outside of their comfort zone.
 
