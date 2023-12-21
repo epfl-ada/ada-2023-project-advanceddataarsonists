@@ -103,7 +103,7 @@ To try and provide an answer to research question (5) and (6), we  TODO
 | Guillaume | Automate dataset retrieval <br/> WikiData translation data retrieval <br/> Provide helper python file to load datasets <br/> Come up with `pref` and `like` metrics |
 | Luca | CMU and IMDb data detailed exploration and joining steps <br/> Explore movie base comfort zones and generate genre frequency vectors <br/> Notebook overhaul <br/> Refine and complete README |
 | Michael | Draft of README <br/> WikiData translation data retrieval <br/> Run CMU persona pipeline <br/> Come up with `pref` and `like` metrics |
-| Syrine | Initial data exploration <br/> TVTropes dataset exploration <br/> Data story |
+| Syrine | Initial data exploration <br/> TVTropes dataset exploration <br/> |
 
 ## Organization within the team for P3
 
@@ -112,5 +112,5 @@ To try and provide an answer to research question (5) and (6), we  TODO
 | Fares | Analysis of movies' success with actors' characteristics |
 | Guillaume | Causal analysis on actors personas and movie genres |
 | Luca | Refine and complete README <br/> Actors personas and movie genres MIP and HHI computations and graph <br/> Data story |
-| Michael | Refine and complete README <br/> Data story <br/> Add KL-divergence to the analysis |
-| Syrine | Data story |
+| Michael | Refine and complete README Data story <br/> Add KL-divergence to the analysis |
+| Syrine | Data story <br/> Initial computation of HHI |
