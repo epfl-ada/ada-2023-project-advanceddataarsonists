@@ -77,7 +77,7 @@ The third step is dedicated to the computation of comfort zones based on movie g
 To answer research questions (1) and (3) we will compute for each actor the distribution of movie genres and personas and apply our predefined metrics. We will plot the resulting ditribution of the metric within the actors for both genres and personas and interpret the mean and deviation of this distribution as indicator of polarization within each category. By sorting on the computed metric score we can extract the most/least polarized actors and plot their personal distribution. Binning by metric score can also help us get a feel of which proportion of actors fall under a certain interval of the metric.  
 For research question (2), we will aggregate actors based on their age, and compute an average persona per age. Then, using the **MIP** of the compute persona for each age group, we can plot the **MIP** score of the persona (which reflects polarization) over actor age and use linear regression to detect the presence or absence of a general trend.  
 Research question (4) is investigated by using the KL-divergence of a role given an actor's role distribution. Then this ditribution is compared with respect to a movie's average rating, which is a reliable indicator of performance to assess whether there's a significant relationship.  
-To try and provide an answer to research question (5) and (6), we cluster characters based on their distribution of tropes using kmeans, and then within each cluster we perform linear regressions to gauge how the feature we are investigating relates to movie performance. Then, we aggregate the personas of each actor by mean of average, and try to assess which etchnicity is most represented for a given persona.
+To try and provide an answer to research question (5) and (6), we cluster characters based on their distribution of tropes using kmeans, and then within each cluster we perform linear regressions to gauge how the feature we are investigating relates to movie performance. Then, we aggregate the personas of each actor by mean of average, and try to assess which ethnicity is most represented for a given persona.
 
 ## Proposed timeline
 
@@ -108,7 +108,7 @@ To try and provide an answer to research question (5) and (6), we cluster charac
 
 | Teammate | Contributions |
 |-|-|
-| Fares | Analysis of movies success with respect to actors' characteristics <br/> Add relevant part to data story |
+| Fares | Analysis of movies success with respect to actors' characteristics <br/> Analysis of the relationship between actor ethnicities and their roles <br/> Add relevant part to data story |
 | Guillaume | Causal analysis on actors personas and movie genres <br/> Used log-likelyhood metric and ran least-squared regressions |
 | Luca | Refine and complete README <br/> Actors personas and movie genres MIP and HHI computations and graph <br/> Data story <br/> Generate plotly graph for the data story <br/> Notebook overhaul |
 | Michael | Refine and complete README <br/> Come up with data story <br/> Retrieve personas labels <br/> Add KL-divergence to the analysis <br/> Generate plotly graph for the data story |
